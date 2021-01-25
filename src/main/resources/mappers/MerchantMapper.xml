@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MerchantMapper">
+
+	<!-- 회원가입 -->
+	<insert id="m_register">
+		INSERT INTO merchants (
+		EMAIL,
+		PW,
+		NAME,
+		TEL,
+		BANK,
+		AC_NAME,
+		AC_NUM,
+		CO_REG_NUM
+		)
+		VALUES(
+		 #{email}
+		, #{pw}
+		, #{name}
+		, #{tel}
+		, #{bank}
+		, #{ac_name}
+		, #{ac_num}
+		, #{co_reg_num}
+		)
+	</insert>
+	<!-- 로그인 -->
+	<select id="login" resultType="com.markethero.vo.MerchantVO">
+		SELECT *
+		FROM merchants
+		WHERE EMAIL = #{email}
+	</select>
+
+	<!-- 회원정보 수정 -->
+	<update id="MerchantUpdate">
+		UPDATE merchants SET
+		PW = #{pw},
+		NAME = #{name},
+		TEL = #{tel},
+		BANK = #{bank},
+		AC_NAME = #{ac_name},
+		AC_NUM = #{ac_num}
+		WHERE EMAIL = #{email}
+	</update>
+
+	<!-- 아이디 중복 체크 -->
+	<select id="idChk" resultType="int">
+		SELECT COUNT(*) FROM merchants
+		WHERE
+		EMAIL = #{email}
+	</select>
+
+	<select id = "orderList" resultType= "com.markethero.vo.MOrderVO">
+	
+	SELECT O.status,
+		 O.created_at,
+		 O.order_type,
+		 O.id ,
+		 U.name AS 'user_name',
+		 P.p_name AS 'product_name',
+		 COUNT(O.id) AS 'count'
+	FROM orders O
+			LEFT OUTER JOIN merchants M ON M.id = #{id}
+			LEFT OUTER JOIN users U ON U.merchant_id = M.id
+			LEFT OUTER JOIN order_items OT ON OT.order_id = O.id
+			LEFT OUTER JOIN products P ON P.id = OT.product_id
+	WHERE M.id = U.merchant_id AND U.id = O.user_id AND O.id = OT.order_id
+	GROUP BY O.id
+	ORDER BY O.id DESC
+	
+	
+	</select>
+	
+
+</mapper>

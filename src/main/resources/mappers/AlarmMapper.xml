@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.markethero.mappers.dashboard.AlarmMapper">
+
+	<select id="newOrderAlarm" resultType="int">
+	SELECT COUNT(a.id)
+	FROM
+		(SELECT o.id
+		FROM orders o,users u
+		WHERE o.user_id = u.id AND o.status = 0 AND u.merchant_id = #{id}
+		)a
+	</select>
+</mapper>

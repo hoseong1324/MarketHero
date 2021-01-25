@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="U_ProductMapper">
+
+	<insert id="p_request">
+		INSERT INTO u_products (
+		U_ID,
+		M_ID,
+		U_NAME,
+		U_P_NAME,
+		U_REQUEST
+		)
+		VALUES(
+		#{u_id}
+		, #{m_id}
+		, #{u_name}
+		, #{u_p_name}
+		,		#{u_request}
+		)
+
+	</insert>
+	<!-- 아이디 중복 체크 -->
+	<select id="u_idChk" resultType="int">
+		SELECT COUNT(*) FROM u_products
+		WHERE
+		U_P_NAME = #{u_p_name}
+	</select>
+	<select id="request_p"
+		resultType="com.markethero.vo.U_ProductVO">
+		SELECT *
+		FROM u_products
+		 WHERE M_ID = #{m_id}
+	</select>
+</mapper>

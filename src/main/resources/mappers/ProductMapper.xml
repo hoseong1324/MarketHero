@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductMapper">
+	<select id="register">
+	<![CDATA[
+		INSERT INTO products (
+		MERCHANT_ID,
+		P_NAME,
+		PRICE,
+		FILE_NAME,
+		CREATED_AT
+		)
+		VALUES(
+		#{merchant_id}
+		, #{p_name}
+		, #{price}
+		, #{file_name}
+		, now()
+		)]]>
+	</select>
+
+	<!-- 상품 관리 -->
+	<select id="product" resultType="com.markethero.vo.ProductVO">
+		SELECT P.id,
+		P.p_name,
+		P.price,
+		P.created_at
+		FROM products P
+		LEFT OUTER JOIN merchants M ON
+		P.merchant_id =
+		#{merchant_id}
+		WHERE P.merchant_id = M.id
+	</select>
+	<!-- 주문하기 -->
+	<select id="order" resultType="com.markethero.vo.ProductVO">
+		SELECT 
+		P.id,
+		P.p_name,
+		P.price,
+		P.file_name
+		FROM products P
+		LEFT OUTER JOIN users U ON
+		P.merchant_id =
+		#{user_id}
+		WHERE P.merchant_id = U.merchant_id
+		GROUP BY P.p_name
+	</select>
+
+	<!-- 회원정보 수정 -->
+	<update id="ProductUpdate">
+		UPDATE products SET
+		P_NAME = #{p_name},
+		PRICE = #{price}
+		WHERE EMAIL = #{email}
+	</update>
+
+	<!-- 아이디 중복 체크 -->
+	<select id="idChk" resultType="int">
+		SELECT COUNT(*) FROM products
+		WHERE
+		P_NAME = #{p_name}
+	</select>
+
+</mapper>

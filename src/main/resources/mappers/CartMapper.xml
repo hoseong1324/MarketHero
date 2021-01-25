@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CartMapper">
+	<insert id="cart">
+		INSERT INTO cart (
+		U_ID,
+		P_ID,
+		QUANTITY
+		) VALUES (
+		#{u_id},
+		#{p_id},
+		#{quantity}
+		)
+	</insert>
+	<delete id="delete" parameterType="int">
+		DELETE
+		FROM cart
+		WHERE id = #{id}
+
+	</delete>
+	<delete id="alldelete" parameterType="int">
+		DELETE
+		FROM cart
+
+	</delete>
+	<select id="list" resultType="com.markethero.vo.CartVO">
+		SELECT
+		C.id,
+		C.u_id,
+		C.p_id,
+		C.quantity,
+		P.p_name,
+		P.price,
+		P.id,
+		P.file_name,
+		U.id,
+		C.quantity*P.price AS 'total'
+		FROM cart C
+		LEFT OUTER JOIN users U ON C.u_id = U.id
+		LEFT OUTER JOIN products P ON C.p_id = P.id
+		LEFT OUTER JOIN products PC ON C.p_file_name = PC.file_name
+		WHERE U.id =#{user_id}
+	</select>
+	<insert id="orders">
+		INSERT INTO orders (
+		ID,
+		USER_ID,
+		STATUS,
+		ORDER_TYPE,
+		PAY_METHOD,
+		RCV_METHOD,
+		CREATED_AT) VALUES(
+		#{id},
+		#{user_id},
+		#{status},
+		#{order_type},
+		#{pay_method},
+		#{rcv_method},
+		now()
+		)
+	</insert>
+	<insert id="orderitem">
+		INSERT INTO order_items(
+		ORDER_ID,
+		PRODUCT_ID,
+		QUANTITY
+		) VALUES (
+		(SELECT MAX(id) FROM orders),
+		#{product_id},
+		#{quantity}
+		)
+	</insert>
+	<select id="Oid" resultType="com.markethero.vo.OrderVO">
+	SELECT MAX(id) FROM orders
+	</select>
+</mapper>

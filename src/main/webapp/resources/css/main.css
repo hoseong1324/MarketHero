@@ -1,0 +1,121 @@
+body {
+  background-color: #efefef;
+}
+
+#menu {
+  display: none;
+  background-color: #e27500;
+  width: 220px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  font-size: 13px;
+}
+
+.menu_active {
+  display: block !important;
+}
+
+#menu_user {
+  width: 100%;
+  background-color: #ffa200;
+  text-align: center;
+}
+
+#menu_user img {
+  margin: 18px 0;
+}
+
+#menu_user h1 {
+  font-family: 'Noto Sans KR';
+  font-weight: 700;
+  font-size: 1.2em;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.4em;
+}
+
+#menu_user h2 {
+  font-family: 'Noto Sans KR';
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+#menu_user_btns {
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 2px solid #ececec;
+}
+
+#menu_user_btns button {
+  width: 89px;
+  margin: 0 6px;
+  background-color: #e27500;
+  font-family: 'Noto Sans KR';
+  font-weight: 500;
+  font-size: 1.1em;
+  color: #fff;
+}
+
+#menu_user_btns .menu_user_btn_logout {
+  background-color: #e24000 !important;
+}
+
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#menu li {
+  width: 100%;
+  height: 62px;
+  line-height: 62px;
+  color: #fff;
+}
+
+#menu .menu_active, #menu .menu_focus {
+  background-color: #ffa200;
+}
+
+#menu li a {
+  display: block;
+  font-family: 'Noto Sans KR';
+  font-weight: 400;
+  font-size: 1.3em;
+  color: #fff;
+  padding-left: 3.5em;
+}
+
+#menu .menu_icon {
+  font-size: 1.2em;
+  position: absolute;
+  left: 0.85em;
+  margin-top: 1em;
+}
+
+#menu .menu_arrow {
+  display: none;
+  font-size: 1.2em;
+  position: absolute;
+  right: 0.85em;
+  margin-top: -2em;
+}
+
+#menu .menu_active .menu_arrow, #menu .menu_focus .menu_arrow {
+  display: block;
+}
+
+#contents {
+  font-size: 13px;
+  margin: 0px;
+  padding-bottom: 65px;
+}
+
+.contents_desktop {
+  margin-left: 220px !important;
+}

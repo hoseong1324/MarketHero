@@ -1,0 +1,217 @@
+#contents a {
+  color: #333;
+}
+
+/* ���떆蹂대뱶 �뙆�듃 css */
+#contents .dashboard_card {
+  padding: 15px;
+}
+
+#contents .dashboard_card .card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
+}
+
+#contents .dashboard_card .card .card-title {
+  width: 100%;
+  border-bottom: 1px solid #333333;
+}
+
+#contents .dashboard_card .card .card-title i {
+  margin: 1.25rem;
+  margin-top: 0.25rem;
+  margin-left: 0.5rem;
+  font-size: 3em;
+}
+
+#contents .dashboard_card .card .card-title i.card-title-more {
+  font-size: 3em;
+  position: absolute;
+  right: 0.8em;
+  top: 0.5em;
+  margin: 0;
+}
+
+#contents .dashboard_card h1 {
+  font-size: 1.7em;
+  font-weight: 700;
+  color: #333333;
+  margin: 0;
+  margin-bottom: 0.2em;
+  padding: 0;
+}
+
+#contents .dashboard_card h2 {
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+#contents .dashboard_card .card .card-contents {
+  width: 100%;
+}
+
+#contents .dashboard_card .card .card-contents .table td {
+  border-top: none;
+  border-bottom: 1px solid #dee2e6;
+}
+
+#contents .dashboard_card .card .card-contents .table .company_name, #contents .dashboard_card .card .card-contents .table .company_owner {
+  width: 25%;
+}
+
+#contents .dashboard_card .card .card-contents .table .product_status {
+  width: 25%;
+  font-weight: 700;
+}
+
+#contents .dashboard_card .card .card-contents .table .product_catch {
+  color: #ac3333;
+}
+
+#contents .dashboard_card .card .card-contents .table .product_delivery {
+  color: #2d70a9;
+}
+
+#contents .dashboard_card .card .card-contents .table .product_completion {
+  color: #2cb862;
+  
+}
+
+#contents .dashboard_card .card .card-contents .table .product_name {
+  width: 50%;
+}
+
+#contents .dashboard_card .card .card-detail {
+  width: 100%;
+  text-align: right;
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+#contents .dashboard_card .card .card-detail a:hover {
+  text-decoration: none;
+}
+
+#contents .dashboard_card .card .card-detail i {
+  margin: 0 0.3em 0 0.8em;
+}
+
+/* �뀒�씠釉� �젅�씠�븘�썐 */
+#contents .layout-table {
+  padding: 0;
+  background-color: #fff;
+}
+
+#contents .layout-full {
+  width: 100%;
+}
+
+#contents .layout-page-navigation {
+  background-color: #fff;
+  padding: 11px 22px;
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #8c8c8c;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+#contents .layout-page-navigation a {
+  color: #8c8c8c;
+}
+
+#contents .layout-page-navigation i {
+  margin: 0 0.5em;
+}
+
+#contents .layout-table-title {
+  padding: 24px;
+  background-color: #efefef;
+}
+
+#contents .layout-table-title h1 {
+  font-size: 3em;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+#contents .layout-table-title i {
+  margin-right: 0.5em;
+}
+
+#contents .layout-table-title form i.layout-btn-search {
+  margin: 0;
+  font-size: 1.35em;
+  color: #fff;
+}
+
+#contents .layout-table-title .layout-table-func {
+  text-align: right;
+}
+
+#contents .layout-table-title .layout-table-func select {
+  background-color: #e24000;
+  border: none;
+  color: #fff;
+}
+
+#contents .layout-table-title .layout-table-func button {
+  color: #fff;
+}
+
+#contents .layout-table-title .align-items-right {
+  justify-content: flex-end;
+}
+
+#contents .layout-table-tab {
+  background-color: #efefef;
+}
+
+#contents .layout-table-tab ul {
+  padding: 0 20px;
+}
+
+#contents .layout-table-tab li {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+#contents .layout-table-body {
+  background-color: #fff;
+}
+
+#contents .layout-table-body .table th, #contents .layout-table-body .table td {
+  text-align: left;
+  vertical-align: middle;
+}
+#contents .layout-table-body .table td span.badge {
+  font-size: 85%;
+  padding: 0.5em 1em;
+}
+#contents .layout-table-body .table td a {
+  color: #0054a6;
+}
+#contents .layout-table-body .table td a:hover {
+  text-decoration: underline;
+}
+
+#contents .layout-table-navigation {
+  padding: 20px 0;
+}
+.o_menu {
+	margin:20px;
+	padding:15px;
+	width:350px;
+	height:500px;
+	background-color:lightyellow;
+	display:inline-block;
+}
+.o_name {
+	text-align:center;
+	background-color:lightblue;
+}
+

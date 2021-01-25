@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DetailMapper">
+
+<select id="detail" resultType="com.markethero.vo.DetailVO">
+
+	SELECT	 P.id,
+			 P.p_name,
+			 OT.quantity,
+			 P.price,
+			 P.price * OT.quantity AS 'total'
+	FROM orders O
+			LEFT OUTER JOIN users U ON U.id = O.user_id
+			LEFT OUTER JOIN order_items OT ON OT.order_id = O.id
+			LEFT OUTER JOIN products P ON P.id = OT.product_id
+	WHERE O.id = #{oid}
+	ORDER BY O.id DESC
+
+</select>
+
+<select id="detail2" resultType="com.markethero.vo.DetailVO2">
+
+	SELECT O.id AS 'oid',
+		 U.name,
+		 U.tel,
+		 U.addr,
+		 O.order_type,
+		 O.pay_method,
+		 O.status,
+		 O.rcv_method
+	FROM orders O
+			LEFT OUTER JOIN users U ON U.id = O.user_id
+			LEFT OUTER JOIN order_items OT ON OT.order_id = O.id
+			LEFT OUTER JOIN products P ON P.id = OT.product_id
+	WHERE O.id = #{oid}
+	GROUP BY U.name
+
+</select>
+
+</mapper>
